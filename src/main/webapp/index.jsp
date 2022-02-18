@@ -29,10 +29,7 @@
 <!--[if lt IE 9]> <script src="assets/js/html5shiv.js"></script> <![endif]-->
 </head>
 <body class="home">
-
 	<header id="header">
-		
-
 		<nav class="navbar navbar-default navbar-sticky">
 			<div class="container-fluid">
 
@@ -75,8 +72,7 @@
 							<a href="single.jsp" class="btn btn-action">Leia Mais</a>
 						</p>
 						<p class="text-center">
-							<a href="" class="btn btn-action">Testar
-								aqui</a>
+							<a href="FornecedorServlet" class="btn btn-action">Testar aqui</a>
 						</p>
 					</div>
 					<!-- 
@@ -127,9 +123,7 @@
 	</main>
 
 	<footer id="footer">
-		<div class="container">
-		
-		</div>
+		<div class="container"></div>
 	</footer>
 
 	<footer id="underfooter"> </footer>
