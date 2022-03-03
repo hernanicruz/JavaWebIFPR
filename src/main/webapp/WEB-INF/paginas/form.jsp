@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="pt_br">
 <head>
@@ -61,67 +62,47 @@
 
 			<div class="row section featured topspace">
 				<h2 class="section-title">
-					<span>Planejamento</span>
+					<span>Insert, update delete</span>
 				</h2>
-				<div class="row">
-					<div class="col-sm-6 col-md-3">
-						<h3 class="text-center">Classes / Servlets</h3>
-						<p>Vamos criar duas classes iniciais, uma de Usuarios e outra
-							de Fornecedores que será extendida a classe Usuarios.</p>
-						<p class="text-center">
-							<a href="single.jsp" class="btn btn-action">Leia Mais</a>
-						</p>
-						<p class="text-center">
-							<a href="FornecedorServlet" class="btn btn-action">Testar aqui</a>
-						</p>
-					</div>
-					
-					<div class="col-sm-6 col-md-3">
-						<h3 class="text-center">Usando JSTL</h3>
-						<p>Uma forma mais fácil de escrever dados recuperados de uma
-							outra tela ou do Banco de dados.</p>
-						<p class="text-center">
-							<a href="jstl.jsp" class="btn btn-action">Leia Mais</a>
-						</p>
-					</div>
-					<div class="col-sm-6 col-md-3">
-						<h3 class="text-center">Conectando com MYSQL</h3>
-						<p>Retornar os .</p>
-						<p class="text-center">
-							<a href="" class="btn btn-action">Leia Mais</a>
-						</p>
-						<p class="text-center">
-							<a href="FornecedorServlet?pagina=list" class="btn btn-action">JSP MySql</a>
-						</p>
-					</div>
-					<div class="col-sm-6 col-md-3">
-						<h3 class="text-center">Inserindo dados no Banco MYSQL</h3>
-						<p>Agora podemos começar a inserir dados em tabelas do MYSQL.</p>
-						<p class="text-center">
-							<a href="" class="btn btn-action">Leia Mais</a>
-						</p>
-						<p class="text-center">
-							<a href="FornecedorServlet?pagina=insert" class="btn btn-action">Testar aqui Insert</a>
-						</p>
-					</div>
-				</div>
-			</div>
-			<!-- / section -->
+				
+				<form method="POST" action="FornecedorServlet">
+					Nome: <input type="text" name="nome"/><br>
+					Razão Social: <input type="text" name="rs" /><br> 
+					Email: <input type="text" name="email" /><br>
+					Cnpj: <input type="text" name="cnpj" /><br>
+					<input type="submit" value="enviar"/><br>
+				
+				</form>
 
-			<div class="row section topspace">
-				<div class="panel panel-cta">
-					<div class="panel-body">
-						<div class="col-lg-8">
-							<p>Ainda não está pronto mas podera baixar no GitHub.</p>
-						</div>
-						<div class="col-lg-4 text-right">
-							<a href="" class="btn btn-primary btn-lg">Download Código
-								GitHub</a>
-						</div>
-					</div>
-				</div>
+
+				<!--  Expression Language ${variavel} -->
+				<table border="1">
+					<tr>
+						<th>id</th>
+						<th>email</th>
+						<th>nome</th>
+						<th>razão social</th>
+						<th>cnpj</th>
+						<th>Atualizar</th>
+						<th>Deletar</th>
+					</tr>
+					<!-- usar jstl.jar -->
+
+					<c:forEach var="f" items="${fornecedores}">
+						<tr>
+							<td>${f.id}</td>
+							<td>${f.email}</td>
+							<td>${f.nome}</td>
+							<td>${f.razaoSocial}</td>
+							<td>${f.cnpj}</td>
+							<td><a href="FornecedorServlet?update=".${f.id}>Atualizar</a></td>
+							<td><a href="FornecedorServlet?delete=".${f.id}">Apagar</a></td>
+						</tr>
+					</c:forEach>
+
+				</table>
 			</div>
-			<!-- /section -->
+			<br>
 
 		</div>
 		<!-- /container -->
