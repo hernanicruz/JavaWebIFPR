@@ -66,42 +66,16 @@
 				</h2>
 				
 				<form method="POST" action="FornecedorServlet">
-					Nome: <input type="text" name="nome"/><br>
-					Razão Social: <input type="text" name="rs" /><br> 
-					Email: <input type="text" name="email" /><br>
-					Cnpj: <input type="text" name="cnpj" /><br>
+				<c:forEach var="f" items="${fornecedoresId}">
+					Nome: <input type="text" name="nome" value="$.{f.nome}"/><br>
+					Razão Social: <input type="text" name="rs" value="${f.razaoSocial}" /><br> 
+					Email: <input type="text" name="email" value="${f.email}"/><br>
+					Cnpj: <input type="text" name="cnpj" value="$.{f.cnpj}" /><br>
 					Não listado<INPUT TYPE="hidden" NAME="naolistado" VALUE="update"><br>
-					<input type="submit" value="enviar"/><br>
-				
+					<input type="submit" value="Atualizar"/><br>
+				</c:forEach>
 				</form>
-
-
-				<!--  Expression Language ${variavel} -->
-				<table border="1">
-					<tr>
-						<th>id</th>
-						<th>email</th>
-						<th>nome</th>
-						<th>razão social</th>
-						<th>cnpj</th>
-						<th>Atualizar</th>
-						<th>Deletar</th>
-					</tr>
-					<!-- usar jstl.jar -->
-
-					<c:forEach var="f" items="${fornecedores}">
-						<tr>
-							<td>${f.id}</td>
-							<td>${f.email}</td>
-							<td>${f.nome}</td>
-							<td>${f.razaoSocial}</td>
-							<td>${f.cnpj}</td>
-							<td><a href=FornecedorServlet?acao=update&id=${f.id}>Atualizar</a>
-							<td><a href=FornecedorServlet?acao=DELETE&id=${f.id}>Excluir</a>
-						</tr>
-					</c:forEach>
-
-				</table>
+								
 			</div>
 			<br>
 
