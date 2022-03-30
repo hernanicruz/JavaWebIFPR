@@ -98,10 +98,7 @@
 						<h3 class="text-center">Inserindo dados no Banco MYSQL</h3>
 						<p>Agora podemos começar a inserir dados em tabelas do MYSQL.</p>
 						<p class="text-center">
-							<a href="" class="btn btn-action">Leia Mais</a>
-						</p>
-						<p class="text-center">
-							<a href="FornecedorServlet?pagina=insert" class="btn btn-action">Testar aqui Insert</a>
+							<a href="FornecedorServlet?pagina=crud" class="btn btn-action">Leia Mais</a>
 						</p>
 					</div>
 				</div>

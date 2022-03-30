@@ -28,13 +28,32 @@ public class FornecedorDAO {
 
 	public static boolean salvar(Fornecedor fornecedor) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
+		
 		Connection conexao = ConexaoJDBC.getConexao();
-		PreparedStatement ps = conexao.prepareStatement("INSERT INTO usuarios (nome, email, razaosocial, cnpj) VALUES (?,?,?,?)");
+		
+		System.out.print("  Entrou salvar ");
+		PreparedStatement ps = conexao.prepareStatement("INSERT INTO javaweb.usuarios (nome,email,razaosocial,cnpj) VALUES (?,?,?,?)");
+		System.out.print(ps);
 		ps.setString(1, fornecedor.getNome());
 		ps.setString(2, fornecedor.getEmail());
 		ps.setString(3, fornecedor.getRazaoSocial());
-		ps.setString(4, fornecedor.getCnpj());
-		
+		ps.setString(4,fornecedor.getCnpj());
 		return ps.execute();
+		
+		
+	}
+
+	public void excluir(Integer id) throws ClassNotFoundException, SQLException {
+		// TODO Auto-generated method stub
+		
+		Connection conexao = ConexaoJDBC.getConexao();
+		
+		System.out.print("  Entrou Excluir");
+		PreparedStatement ps = conexao.prepareStatement("DELETE FROM javaweb.usuarios WHERE id = ?");
+		System.out.print(ps);
+		ps.setInt(1, id);
+		
+		ps.execute();
+		
 	}
 }

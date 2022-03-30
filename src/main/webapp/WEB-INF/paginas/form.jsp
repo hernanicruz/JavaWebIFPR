@@ -66,11 +66,11 @@
 				</h2>
 				
 				<form method="POST" action="FornecedorServlet">
-					Nome: <input type="text" name="nome"/><br>
+					<input type="text" disabled name="crud"/><br>
+					nome: <input type="text" name="nome"/><br>
 					Razão Social: <input type="text" name="rs" /><br> 
 					Email: <input type="text" name="email" /><br>
-					Cnpj: <input type="text" name="cnpj" /><br>
-					Não listado<INPUT TYPE="hidden" NAME="naolistado" VALUE="update"><br>
+					cnpj: <input type="text" name="cnpj" /><br>
 					<input type="submit" value="enviar"/><br>
 				
 				</form>
@@ -84,8 +84,6 @@
 						<th>nome</th>
 						<th>razão social</th>
 						<th>cnpj</th>
-						<th>Atualizar</th>
-						<th>Deletar</th>
 					</tr>
 					<!-- usar jstl.jar -->
 
@@ -96,8 +94,6 @@
 							<td>${f.nome}</td>
 							<td>${f.razaoSocial}</td>
 							<td>${f.cnpj}</td>
-							<td><a href=FornecedorServlet?acao=update&id=${f.id}>Atualizar</a>
-							<td><a href=FornecedorServlet?acao=DELETE&id=${f.id}>Excluir</a>
 						</tr>
 					</c:forEach>
 
